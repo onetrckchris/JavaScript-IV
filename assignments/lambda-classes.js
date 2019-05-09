@@ -11,8 +11,8 @@ class Person {
 }
 
 class Instructor extends Person {
-    constructor({specialty, favLanguage, catchPhrase, ...rest}) {
-        super(rest);
+    constructor({name, age, location, specialty, favLanguage, catchPhrase}) {
+        super({name, age, location});
 
         this.specialty = specialty;
         this.favLanguage = favLanguage;
@@ -47,8 +47,8 @@ class Instructor extends Person {
 }
 
 class Student extends Person {
-    constructor({prevBackground, className, favSubs, grade, ...rest}) {
-        super(rest);
+    constructor({name, age, location, prevBackground, className, favSubs, grade}) {
+        super({name, age, location});
 
         this.prevBackground = prevBackground;
         this.className = className;
@@ -85,8 +85,8 @@ function getRandomInt(max) {
   }
 
 class ProjectManager extends Instructor {
-    constructor({gradClassName, favInstructor, ...rest}) {
-        super(rest);
+    constructor({name, age, location, specialty, favLanguage, catchPhrase, gradClassName, favInstructor}) {
+        super({name, age, location, specialty, favLanguage, catchPhrase});
 
         this.gradClassName = gradClassName;
         this.favInstructor = favInstructor;
@@ -161,8 +161,18 @@ const josh = new ProjectManager({
     favInstructor: 'Dan Levy'
 });
 
+const dan = new Instructor({
+    name: 'Dan',
+    age: 200,
+    location: 'Home',
+    specialty: 'Redux',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'Cats CATS CAAAAAAAAAATS!'
+})
+
 josh.speak();
 josh.standUp('web20_joshua_w');
+
 josh.score(chris);
 josh.score(chris);
 josh.score(chris);
@@ -172,3 +182,7 @@ josh.score(chris);
 josh.score(chris);
 
 chris.graduate();
+
+dan.grade(chris, 'JavaScript');
+dan.score(chris);
+dan.speak();
